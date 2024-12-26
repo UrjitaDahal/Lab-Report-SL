@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize Words</title>
+</head>
+
+<body>
+    <h1>Capitalize First Letter of Each Word</h1>
+    <label for="userInput">Enter a string:</label>
+    <input type="text" id="userInput">
+    <button onclick="processString()">Capitalize</button>
+    <p id="result"></p>
+
+    <script>
+        function capitalizeFirstLetter(str) {
+            return str
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+        }
+
+        function processString() {
+            const userInput = document.getElementById('userInput').value;
+            const capitalizedString = capitalizeFirstLetter(userInput);
+            document.getElementById('result').textContent = `Capitalized String: ${capitalizedString}`;
+        }
+    </script>
+</body>
+
+</html>
