@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function daysUntilNextChristmas() {
+                const today = new Date(); // Current date
+                const currentYear = today.getFullYear();
+
+                // Set next Christmas date
+                let nextChristmas = new Date(currentYear, 11, 25); // December 25th of the current year
+
+                // Check if Christmas has already passed this year
+                if (today > nextChristmas) {
+                    nextChristmas = new Date(currentYear + 1, 11, 25); // Christmas of the next year
+                }
+
+                // Calculate the difference in time (milliseconds)
+                const timeDifference = nextChristmas - today;
+
+                // Convert milliseconds to days
+                const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+                return daysLeft;
+            }
+
+            // Display the result
+            console.log(`There are ${daysUntilNextChristmas()} days left until next Christmas!`);
+
+    </script>
+</body>
+</html>

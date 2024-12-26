@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+
+<body>
+    <h2>Basic Calculator</h2>
+    <form id="calculatorForm">
+        <label for="num1">Enter First Number:</label>
+        <input type="number" id="num1" required><br><br>
+
+        <label for="num2">Enter Second Number:</label>
+        <input type="number" id="num2" required><br><br>
+
+        <button type="button" onclick="performCalculations()">Calculate</button>
+    </form>
+
+    <h3>Results:</h3>
+    <p id="results"></p>
+
+    <script>
+        function performCalculations() {
+            // Get the values entered by the user
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+            // Check if inputs are valid
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("results").innerText = "Please enter valid numbers.";
+                return;
+            }
+
+            // Perform calculations
+            const addition = num1 + num2;
+            const subtraction = num1 - num2;
+            const multiplication = num1 * num2;
+            const division = num2 !== 0 ? (num1 / num2).toFixed(2) : "Cannot divide by zero";
+
+            // Display results
+            const results = `
+                Addition: ${addition} <br>
+                Subtraction: ${subtraction} <br>
+                Multiplication: ${multiplication} <br>
+                Division: ${division}
+            `;
+            document.getElementById("results").innerHTML = results;
+        }
+    </script>
+</body>
+
+</html>

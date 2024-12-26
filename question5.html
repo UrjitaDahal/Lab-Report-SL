@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getCurrentDate() {
+                const now = new Date(); // Get the current date and time
+
+                const day = String(now.getDate()).padStart(2, '0'); // Day (2 digits)
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // Month (2 digits, zero-based index)
+                const year = now.getFullYear(); // Full year (4 digits)
+
+                const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const months = [
+                    'January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'
+                ];
+
+                const dayOfWeek = days[now.getDay()]; // Get the day of the week
+                const monthName = months[now.getMonth()]; // Get the month name
+
+                // Output in different formats
+                console.log(`mm-dd-yyyy: ${month}-${day}-${year}`);
+                console.log(`dd/mm/yyyy: ${day}/${month}/${year}`);
+                console.log(`yyyy month date day: ${year} ${monthName} ${day}, ${dayOfWeek}`);
+            }
+
+            // Call the function to display the output
+            getCurrentDate();
+    </script>
+</body>
+</html>
