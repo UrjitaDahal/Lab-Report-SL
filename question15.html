@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Colors</title>
+</head>
+
+<body>
+    <h2>Color Choices</h2>
+    <ul id="colorList"></ul>
+
+    <script>
+        const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+        const suffixes = ["th", "st", "nd", "rd"];
+
+        function getSuffix(index) {
+            // Determine the correct suffix based on the index
+            if (index % 100 >= 11 && index % 100 <= 13) {
+                return "th"; // Special cases: 11th, 12th, 13th
+            }
+            const lastDigit = index % 10;
+            return suffixes[lastDigit] || "th"; // Use default "th" if no specific suffix
+        }
+
+        function displayColors() {
+            const colorList = document.getElementById("colorList");
+
+            colors.forEach((color, index) => {
+                const rank = index + 1; // Rank starts at 1, not 0
+                const suffix = getSuffix(rank);
+                const listItem = document.createElement("li");
+                listItem.textContent = `${rank}${suffix} choice is ${color}.`;
+                colorList.appendChild(listItem);
+            });
+        }
+
+        // Display the colors with their corresponding suffixes
+        displayColors();
+    </script>
+</body>
+
+</html>

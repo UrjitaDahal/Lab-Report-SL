@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd or Even Numbers</title>
+</head>
+
+<body>
+    <h2>Odd or Even Numbers from 0 to 15</h2>
+    <ul id="numberList"></ul>
+
+    <script>
+        for (let i = 0; i <= 15; i++) {
+            let message;
+            if (i % 2 === 0) {
+                message = `${i} is even.`;
+            } else {
+                message = `${i} is odd.`;
+            }
+
+            // Display the message
+            const listItem = document.createElement("li");
+            listItem.textContent = message;
+            document.getElementById("numberList").appendChild(listItem);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array Items</title>
+</head>
+
+<body>
+    <h2>Sort Array Items</h2>
+    <label for="arrayInput">Enter array items (comma-separated):</label>
+    <input type="text" id="arrayInput" placeholder="e.g., 5, 3, 8, 1, 2">
+    <button onclick="sortArray()">Sort Array</button>
+    <p id="result"></p>
+
+    <script>
+        function sortArray() {
+            // Get user input and convert it to an array
+            const input = document.getElementById("arrayInput").value;
+            const array = input.split(",").map(item => item.trim()); // Trim spaces
+
+            // Check if the array contains only numbers
+            const isNumeric = array.every(item => !isNaN(item));
+            if (isNumeric) {
+                // Convert to numbers and sort numerically
+                array.sort((a, b) => a - b);
+            } else {
+                // Sort alphabetically for strings
+                array.sort();
+            }
+
+            // Display sorted array
+            document.getElementById("result").innerText = "Sorted Array: " + array.join(", ");
+        }
+    </script>
+</body>
+
+</html>

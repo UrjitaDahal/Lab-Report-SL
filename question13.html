@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Array Elements</title>
+</head>
+
+<body>
+    <h2>Join Array Elements</h2>
+    <p id="arrayOutput"></p>
+    <p id="stringOutput"></p>
+
+    <script>
+        // Example array
+        const array = ["Hello", "world", "this", "is", "JavaScript"];
+
+        // Join array elements into a string
+        const joinedString = array.join(" ");
+
+        // Display the results
+        document.getElementById("arrayOutput").innerText = "Original Array: " + JSON.stringify(array);
+        document.getElementById("stringOutput").innerText = "Joined String: " + joinedString;
+    </script>
+</body>
+
+</html>
