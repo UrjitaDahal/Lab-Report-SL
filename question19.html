@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Age</title>
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Age Calculator</h2>
+        <form id="ageForm">
+            <label for="dob">Enter your Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <input type="submit" value="Calculate Age">
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Function to calculate age
+        function calculateAge(dob) {
+            const birthDate = new Date(dob);
+            const today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+
+            // Adjust age if the birthday hasn't occurred yet this year
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            return age;
+        }
+
+        // Handle form submission
+        document.getElementById("ageForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            const dob = document.getElementById("dob").value;
+
+            if (dob) {
+                const age = calculateAge(dob);
+                document.getElementById("result").textContent = `Your age is ${age} year(s).`;
+            } else {
+                document.getElementById("result").textContent = "Please enter a valid date of birth.";
+            }
+        });
+    </script>
+</body>
+
+</html>

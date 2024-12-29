@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Difference Between Dates</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Date Difference Calculator</h2>
+        <form id="dateForm">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" required>
+            <input type="submit" value="Calculate Difference">
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Function to calculate the difference in days between two dates
+        function getDaysDifference(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+
+            // Calculate the difference in milliseconds
+            const differenceInMilliseconds = Math.abs(end - start);
+
+            // Convert milliseconds to days
+            return Math.ceil(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+        }
+
+        // Handle form submission
+        document.getElementById("dateForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            const startDate = document.getElementById("startDate").value;
+            const endDate = document.getElementById("endDate").value;
+
+            if (startDate && endDate) {
+                const daysDifference = getDaysDifference(startDate, endDate);
+                document.getElementById("result").textContent = `The difference between the dates is ${daysDifference} day(s).`;
+            } else {
+                document.getElementById("result").textContent = "Please select both dates.";
+            }
+        });
+    </script>
+</body>
+
+</html>
