@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Management</title>
+</head>
+
+<body>
+    <h1>Cookie Manager</h1>
+    <div>
+        <h2>Add Cookie</h2>
+        <label for="key">Key:</label>
+        <input type="text" id="key" placeholder="Enter key">
+        <label for="value">Value:</label>
+        <input type="text" id="value" placeholder="Enter value">
+        <button onclick="addCookie()">Add Cookie</button>
+    </div>
+
+    <div>
+        <h2>Read Cookie</h2>
+        <label for="readKey">Key:</label>
+        <input type="text" id="readKey" placeholder="Enter key to read">
+        <button onclick="readCookie()">Read Cookie</button>
+        <p id="readResult"></p>
+    </div>
+
+    <div>
+        <h2>Display All Cookies</h2>
+        <button onclick="displayAllCookies()">Display All Cookies</button><br><br>
+        <table border="1" id="cookieTable">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Delete Cookie</h2>
+        <label for="deleteKey">Key:</label>
+        <input type="text" id="deleteKey" placeholder="Enter key to delete">
+        <button onclick="deleteCookie()">Delete Cookie</button>
+    </div>
+
+    <div>
+        <h2>Delete All Cookies</h2>
+        <button onclick="deleteAllCookies()">Delete All Cookies</button>
+    </div>
+
+    <script src="cookie36.js"></script>
+</body>
+
+</html>
