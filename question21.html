@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Weekend Dates</title>
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Find Weekend Dates</h2>
+        <label for="dateInput">Enter a Date:</label>
+        <input type="date" id="dateInput" required>
+        <button onclick="getWeekendDates()">Get Weekend Dates</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function getWeekendDates() {
+            const dateInput = document.getElementById("dateInput").value;
+            if (!dateInput) {
+                document.getElementById("result").textContent = "Please select a date.";
+                return;
+            }
+
+            const selectedDate = new Date(dateInput);
+            const dayOfWeek = selectedDate.getDay(); // 0: Sunday, 1: Monday, ..., 6: Saturday
+
+            // Calculate Saturday's date
+            const saturday = new Date(selectedDate);
+            saturday.setDate(selectedDate.getDate() + (6 - dayOfWeek) % 7);
+
+            // Calculate Sunday's date
+            const sunday = new Date(saturday);
+            sunday.setDate(saturday.getDate() + 1);
+
+            document.getElementById("result").textContent = `The weekend dates are:
+                Saturday: ${saturday.toDateString()},
+                Sunday: ${sunday.toDateString()}`;
+        }
+    </script>
+</body>
+
+</html>

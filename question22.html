@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Blank String</title>
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Check if String is Blank</h2>
+        <label for="textInput">Enter a String:</label>
+        <input type="text" id="textInput" placeholder="Type something or leave blank">
+        <button onclick="checkBlank()">Check</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function isBlank(str) {
+            // Check if string is null, undefined, or only contains whitespace
+            return !str || str.trim() === '';
+        }
+
+        function checkBlank() {
+            const input = document.getElementById("textInput").value;
+            const resultElement = document.getElementById("result");
+
+            if (isBlank(input)) {
+                resultElement.textContent = "The string is blank.";
+            } else {
+                resultElement.textContent = `The string is not blank. You entered: "${input}"`;
+            }
+        }
+    </script>
+</body>
+
+</html>

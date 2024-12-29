@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Characters</title>
+ 
+</head>
+
+<body>
+    <div class="container">
+        <h2>Remove Characters from String</h2>
+        <label for="textInput">Enter a String:</label>
+        <input type="text" id="textInput" placeholder="Type your string here">
+
+        <label for="startIndex">Start Index (0-based):</label>
+        <input type="number" id="startIndex" placeholder="Enter start index">
+
+        <label for="numChars">Number of Characters to Remove:</label>
+        <input type="number" id="numChars" placeholder="Enter number of characters">
+
+        <button onclick="removeCharacters()">Remove Characters</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function removeChars(str, startIndex, numChars) {
+            // Ensure the inputs are valid
+            if (startIndex < 0 || numChars < 0 || startIndex >= str.length) {
+                return "Invalid inputs. Please check your indices.";
+            }
+
+            // Remove characters using slicing
+            return str.slice(0, startIndex) + str.slice(startIndex + numChars);
+        }
+
+        function removeCharacters() {
+            const textInput = document.getElementById("textInput").value;
+            const startIndex = parseInt(document.getElementById("startIndex").value);
+            const numChars = parseInt(document.getElementById("numChars").value);
+            const resultElement = document.getElementById("result");
+
+            // Validate inputs
+            if (isNaN(startIndex) || isNaN(numChars)) {
+                resultElement.textContent = "Please provide valid numerical inputs for indices.";
+                return;
+            }
+
+            const result = removeChars(textInput, startIndex, numChars);
+            resultElement.textContent = `Modified String: "${result}"`;
+        }
+    </script>
+</body>
+
+</html>

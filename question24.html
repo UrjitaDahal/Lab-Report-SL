@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // a. Create an empty object called dog
+            let dog = {};
+
+            // b. Print the dog object on the console
+            console.log("Initial dog object:", dog);
+
+            // c. Add name, legs, color, age, and bark properties to the dog object
+            dog.name = "Buddy";
+            dog.legs = 4;
+            dog.color = "Brown";
+            dog.age = 3;
+            dog.bark = function () {
+                return "Woof Woof!";
+            };
+
+            // d. Get and print name, legs, color, age, and bark value from the dog object
+            console.log("Dog's name:", dog.name);
+            console.log("Number of legs:", dog.legs);
+            console.log("Color:", dog.color);
+            console.log("Age:", dog.age);
+            console.log("Bark sound:", dog.bark());
+
+            // e. Set new properties for the dog object: breed and getDogInfo
+            dog.breed = "Labrador";
+            dog.getDogInfo = function () {
+                return `Name: ${this.name}, Legs: ${this.legs}, Color: ${this.color}, Age: ${this.age}, Breed: ${this.breed}`;
+            };
+
+            // Display the updated dog object
+            console.log("Updated dog object:", dog);
+
+            // Get and print the dog info
+            console.log("Dog Info:", dog.getDogInfo());
+    </script>
+</body>
+</html>
