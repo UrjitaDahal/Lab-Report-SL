@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .counter-container {
+            margin-top: 50px;
+        }
+
+        .counter-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+
+        .counter-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .counter-display {
+            display: inline-block;
+            width: 50px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: lightpink;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .reset-btn {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Counter App</h1>
+    <div class="counter-container">
+        <button class="counter-btn" onclick="increment()">+</button>
+        <span class="counter-display" id="counter">0</span>
+        <button class="counter-btn" onclick="decrement()">-</button>
+    </div>
+    <button class="reset-btn" onclick="resetCounter()">Reset</button>
+
+    <script>
+        // Initialize counter
+            let counterValue = 0;
+
+            // Function to increment the counter
+            function increment() {
+                counterValue++;
+                updateDisplay();
+            }
+
+            // Function to decrement the counter
+            function decrement() {
+                if (counterValue > 0) {
+                    counterValue--;
+                }
+                updateDisplay();
+            }
+
+            // Function to reset the counter
+            function resetCounter() {
+                counterValue = 0;
+                updateDisplay();
+            }
+
+            // Function to update the counter display
+            function updateDisplay() {
+                document.getElementById("counter").textContent = counterValue;
+            }
+
+    </script>
+</body>
+
+</html>

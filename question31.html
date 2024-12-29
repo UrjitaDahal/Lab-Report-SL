@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .number {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            width: 50px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .even {
+            background-color: green;
+        }
+
+        .odd {
+            background-color: yellow;
+            color: black;
+        }
+
+        .prime {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number Generator</h1>
+    <p>Enter a number to generate numbers up to that limit:</p>
+    <input type="number" id="userInput" placeholder="Enter a number" min="1">
+    <button onclick="generateNumbers()">Generate</button>
+    <div class="container" id="numberContainer"></div>
+
+<script>
+    // Function to check if a number is prime
+    function isPrime(num) {
+        if (num <= 1) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
+
+    // Function to generate numbers up to the user input
+    function generateNumbers() {
+        const container = document.getElementById("numberContainer");
+        const userInput = document.getElementById("userInput").value;
+
+        // Clear previous numbers
+        container.innerHTML = "";
+
+        // Validate input
+        const limit = parseInt(userInput, 10);
+        if (isNaN(limit) || limit < 1) {
+            alert("Please enter a valid positive number.");
+            return;
+        }
+
+        // Generate numbers and style them based on type
+        for (let i = 1; i <= limit; i++) {
+            const numberDiv = document.createElement("div");
+            numberDiv.textContent = i;
+            numberDiv.classList.add("number");
+
+            if (isPrime(i)) {
+                numberDiv.classList.add("prime");
+            } else if (i % 2 === 0) {
+                numberDiv.classList.add("even");
+            } else {
+                numberDiv.classList.add("odd");
+            }
+
+            container.appendChild(numberDiv);
+        }
+    }
+
+</script>
+</body>
+
+</html>
