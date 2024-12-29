@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const personAccount = {
+                firstName: "joshua",
+                lastName: "hong",
+                incomes: [], // Array to store income with description
+                expenses: [], // Array to store expenses with description
+
+                // Method to calculate total income
+                totalIncome() {
+                    return this.incomes.reduce((total, income) => total + income.amount, 0);
+                },
+
+                // Method to calculate total expense
+                totalExpense() {
+                    return this.expenses.reduce((total, expense) => total + expense.amount, 0);
+                },
+
+                // Method to get account information
+                accountInfo() {
+                    return `Account Holder: ${this.firstName} ${this.lastName}\nTotal Income: $${this.totalIncome()}\nTotal Expense: $${this.totalExpense()}\nAccount Balance: $${this.accountBalance()}`;
+                },
+
+                // Method to add income with description
+                addIncome(description, amount) {
+                    if (amount > 0) {
+                        this.incomes.push({ description, amount });
+                        console.log(`Added Income: ${description}, Amount: $${amount}`);
+                    } else {
+                        console.log("Income amount must be positive!");
+                    }
+                },
+
+                // Method to add expense with description
+                addExpense(description, amount) {
+                    if (amount > 0) {
+                        this.expenses.push({ description, amount });
+                        console.log(`Added Expense: ${description}, Amount: $${amount}`);
+                    } else {
+                        console.log("Expense amount must be positive!");
+                    }
+                },
+
+                // Method to calculate account balance
+                accountBalance() {
+                    return this.totalIncome() - this.totalExpense();
+                },
+            };
+
+            // Example usage
+            console.log("Initial Account Info:\n", personAccount.accountInfo());
+
+            // Adding incomes
+            personAccount.addIncome("Salary", 3000);
+            personAccount.addIncome("Freelancing", 1500);
+
+            // Adding expenses
+            personAccount.addExpense("Rent", 1200);
+            personAccount.addExpense("Groceries", 400);
+
+            console.log("\nUpdated Account Info:\n", personAccount.accountInfo());
+
+    </script>
+</body>
+</html>

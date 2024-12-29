@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tenMostFrequentWords() {
+                // Prompt the user for input
+                const userInput = prompt("Enter a string to analyze:");
+                if (!userInput) {
+                    console.log("No input provided.");
+                    return;
+                }
+
+                // Split the string into words and normalize (convert to lowercase)
+                const words = userInput
+                    .toLowerCase()
+                    .match(/\b\w+\b/g); // Match only words (letters, digits, underscores)
+
+                if (!words) {
+                    console.log("No words found in the input.");
+                    return;
+                }
+
+                // Create a frequency map
+                const wordFrequency = {};
+                for (const word of words) {
+                    wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+                }
+
+                // Convert the frequency map to an array of [word, frequency] pairs
+                const sortedWords = Object.entries(wordFrequency)
+                    .sort((a, b) => b[1] - a[1]) // Sort by frequency in descending order
+                    .slice(0, 10); // Take the top 10 words
+
+                // Output the results
+                console.log("The 10 most frequent words are:");
+                sortedWords.forEach(([word, frequency], index) => {
+                    console.log(`${index + 1}. ${word}: ${frequency}`);
+                });
+            }
+
+            // Call the function
+            tenMostFrequentWords();
+    </script>
+</body>
+</html>
